@@ -25,6 +25,7 @@ requirements:
 test:
   commands:
     - pip check
+    - pip
   imports:
     - tftpy
 
