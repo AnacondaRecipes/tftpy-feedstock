@@ -1,0 +1,42 @@
+{% set name = "tftpy" %}
+{% set version = "0.8.2" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: e1d1a680efd88eba176b351175844253067392a9b0f8b81588e3ff2b9e7bbb5b
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - tftpy
+
+about:
+  home: "http://github.com/msoulier/tftpy"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Python TFTP library"
+  doc_url: 
+  dev_url: 
+
+extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/36125
+  recipe-maintainers:
+    - ianaobi
+    - bradley
